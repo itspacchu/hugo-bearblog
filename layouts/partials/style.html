@@ -10,6 +10,9 @@
     --link-color: #8FB38A; /* lighter olive */
     --visited-color: #b39cd0; /* softer pastel purple */
     --blockquote-color: #cdbfae;
+
+    --palm-leaf: #121e18;   /* Dark background for code blocks */
+    --deep-mocha: #f8f2f6;  /* Bright text for code blocks */
   }
 
   body {
@@ -34,7 +37,7 @@
   h6 {
     font-family: var(--font-main);
     color: var(--heading-color);
-    transform: scaleX(1.20) skewX(-5deg);
+    transform: scaleX(1.15) skewX(-5deg);
     transform-origin: left;
   }
 
@@ -99,11 +102,12 @@
   }
 
   pre {
-    background-color: var(--palm-leaf);
+    background-color: var(--palm-leaf) !important; /* !important ensures it overrides Hugo defaults */
     color: var(--deep-mocha);
     padding: 1em;
     border-radius: 3px;
     overflow-x: auto;
+    line-height: 1.4;
   }
 
   blockquote {
@@ -130,12 +134,25 @@
     width: auto !important;
   }
 
-  .highlight,
-  .code {
+  .highlight {
+    background-color: var(--palm-leaf);
     border-radius: 3px;
     margin-block-start: 1em;
     margin-block-end: 1em;
     overflow-x: auto;
+  }
+
+  .highlight pre {
+    margin: 0;
+    padding: 1em;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px 4px;
+    border-radius: 3px;
+    background-color: var(--palm-leaf);
+    color: var(--deep-mocha);
   }
 
   /* blog post list */
